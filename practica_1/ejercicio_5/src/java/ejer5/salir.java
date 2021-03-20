@@ -1,24 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package ejer5;
-
-import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-/**
- *
- * @author ANGELA CATACORA
- */
-@WebServlet(name = "salir", urlPatterns = {"/salir"})
-public class salir extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -60,21 +39,42 @@ public class salir extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String nu = request.getParameter("nu");
+        double num1 = Double.parseDouble(nu);
+        String num = request.getParameter("num");
+        double num2 = Double.parseDouble(num);
+        String opcion = request.getParameter("opcion");
+        int op = Integer.parseInt(opcion);
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet salir</title>");            
+            out.println("<title>Servlet Salir</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1 align='center'>Servlet salir at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Resultado</h1>");
+            if (op == 1) {
+                double suma = num1 + num2;
+                out.println("<h2>La suma de " + num1 + " + " + num2 + " = " + suma + "</h2>");
+            }
+            if (op == 2) {
+                double resta = num1 - num2;
+                out.println("<h2>La resta de " + num1 + " - " + num2 + " = " + resta + "</h2>");
+            }
+            if (op == 3) {
+                double multiplicacion = num1 * num2;
+                out.println("<h2>La multiplicación de " + num1 + " * " + num2 + " = " + multiplicacion + "</h2>");
+            }
+            if (op == 4) {
+                double division = num1 / num2;
+                out.println("<h2>La división de " + num1 + " / " + num2 + " = " + division + "</h2>");
+            }
             out.println("</body>");
             out.println("</html>");
         }
     }
-
     /**
      * Returns a short description of the servlet.
      *
@@ -86,3 +86,4 @@ public class salir extends HttpServlet {
     }// </editor-fold>
 
 }
+
