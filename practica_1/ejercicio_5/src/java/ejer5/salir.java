@@ -1,3 +1,24 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ejer5;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ *
+ * @author ANGELA CATACORA
+ */
+@WebServlet(name = "salir", urlPatterns = {"/salir"})
+public class salir extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +60,10 @@
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nu = request.getParameter("nu");
-        double num1 = Double.parseDouble(nu);
-        String num = request.getParameter("num");
-        double num2 = Double.parseDouble(num);
+        String num = request.getParameter("num1");
+        double num1 = Double.parseDouble(num);
+        String nu = request.getParameter("num2");
+        double num2 = Double.parseDouble(nu);
         String opcion = request.getParameter("opcion");
         int op = Integer.parseInt(opcion);
         response.setContentType("text/html;charset=UTF-8");
