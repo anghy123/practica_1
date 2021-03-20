@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package ejer1;
-
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -63,6 +64,9 @@ public class salida extends HttpServlet {
         String nombre=request.getParameter("nombre");
         String fecha=request.getParameter("fecha");
         int fechas = Integer.parseInt(fecha);
+        Calendar fechaActual = new GregorianCalendar();
+        int fechaActual1 = fechaActual.get(Calendar.YEAR);
+        int r1=Math.abs(fechas-fechaActual1);
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -81,6 +85,7 @@ public class salida extends HttpServlet {
             out.println("<p align='center'>año de nacido:  "+fechas+"</p>");
             out.println("<br>");
             out.println("<br>");
+            out.println("<p align='center'>tu edad es de:"+r1+" años</p>");
             out.println("</body>");
             out.println("</html>");
         }
